@@ -7,11 +7,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 
+//TODO More tests!
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class WeatherdataApplicationTests {
+class WeatherDataApplicationTests {
 
 	@Autowired
-	WeatherdataController weatherdataController;
+	WeatherDataController weatherdataController;
 
 	@LocalServerPort
 	private int port;

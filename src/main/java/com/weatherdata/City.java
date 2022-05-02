@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Entity
 public class City {
@@ -24,12 +23,13 @@ public class City {
     @NotEmpty(message = "Name is mandatory")
     private String name;
 
+    /** Country code (for example EE) */
     @NotEmpty(message = "Country is mandatory")
     private String country;
 
-    @OneToMany(targetEntity=Weatherdata.class, cascade = CascadeType.ALL,
+    @OneToMany(targetEntity= WeatherData.class, cascade = CascadeType.ALL,
             fetch = FetchType.EAGER, orphanRemoval = true)
-    private List<Weatherdata> weatherdata = new ArrayList<>();
+    private List<WeatherData> weatherData = new ArrayList<>();
 
     public City(Long id, String name, String country) {
         this.id = id;
@@ -37,8 +37,9 @@ public class City {
         this.country = country;
     }
 
-    public void addToWeatherdata (Weatherdata data) {
-        this.weatherdata.add(data);
+    /** Adds weather data to a city object. */
+    public void addWeatherData(WeatherData data) {
+        this.weatherData.add(data);
     }
 
     @Override
@@ -57,10 +58,9 @@ public class City {
         return Objects.hash(this.id, this.name, this.country);
     }
 
+    /** City info in string format. Does not include weather data. */
     @Override
     public String toString() {
         return "City{" + "id=" + this.id + ", name='" + this.name + '\'' + ", country code='" + this.country + '\'' + '}';
     }
-
-
 }
