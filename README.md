@@ -31,4 +31,4 @@ Swagger is used to test REST API functionality, and it is located at http://loca
 
 Full list of cities here (city.list.json.gz): http://bulk.openweathermap.org/sample/
 
-<!-- Adding something to test -->
+Trying something else.
